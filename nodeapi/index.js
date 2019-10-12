@@ -3,7 +3,9 @@ var app = express();
 const morgan = require("morgan");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
+const bodyParser = require("body-parser");
 dotenv.config();
+app.use(bodyParser.json());
 
 // bring in routes
 const Posts = require("./routes/post");
