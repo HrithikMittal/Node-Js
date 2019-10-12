@@ -1,7 +1,16 @@
 const Post = require("../modals/post");
 
 const getPosts = (req, res) => {
-  res.send(`Hi I am Adhikansh`);
+  Post.find()
+    .then(posts => {
+      if (!posts) {
+        res.status(200).send("There is no post to show");
+      }
+      res.status(200).send(posts);
+    })
+    .catch(error => {
+      console.log("Error is ", error.message);
+    });
 };
 
 const createPost = (req, res) => {
@@ -18,7 +27,6 @@ const createPost = (req, res) => {
     .catch(err => {
       console.log("Error is:", err.message);
     });
-
 };
 
 module.exports = {
