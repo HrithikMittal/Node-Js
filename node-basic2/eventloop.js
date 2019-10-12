@@ -5,11 +5,14 @@ const fileName = "target.txt";
 //   console.log(`File changed`);
 // });
 
-fs.readFile(fileName, (err, data) => {
-  if (err) {
-    console.log("Error is ", err.message);
-  }
-  console.log(data.toString());
-});
+const data = fs.readFileSync(fileName);
+console.log(data.toString());
+
+// fs.readFile(fileName, (err, data) => {
+//   if (err) {
+//     console.log("Error is ", err.message);
+//   }
+//   console.log(data.toString());
+// });
 
 console.log("Node Js async programming ... ?");
