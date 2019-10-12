@@ -1,6 +1,8 @@
-const getPosts = (req, res) => {
-  res.send(`Hi I am Adhikansh`);
-};
-module.exports = {
-  getPosts
-};
+const express = require("express");
+var router = express.Router();
+
+const postController = require("../controllers/post");
+
+router.get("/", postController.getPosts);
+
+module.exports = router;
