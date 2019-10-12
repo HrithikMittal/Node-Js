@@ -18,6 +18,7 @@ const createPost = (req, res) => {
     .catch(err => {
       console.log("Error is:", err.message);
     });
+
 };
 
 module.exports = {
