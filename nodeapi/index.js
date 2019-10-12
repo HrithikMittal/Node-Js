@@ -1,9 +1,22 @@
 const express = require("express");
 var app = express();
 const morgan = require("morgan");
+const mongoose = require("mongoose");
+const dotenv = require("dotenv");
+dotenv.config();
 
 // bring in routes
 const Posts = require("./routes/post");
+
+// connect to the Database
+mongoose
+  .connect(process.env.MongoURL, { useNewUrlParser: true })
+  .then(() => {
+    console.log("Database connection is successfully done");
+  })
+  .catch(err => {
+    console.log("Error is ", err.message);
+  });
 
 // middleware
 const myOwnMiddleware = (req, res, next) => {
@@ -13,10 +26,8 @@ const myOwnMiddleware = (req, res, next) => {
 
 app.use(morgan("dev"));
 app.use(myOwnMiddleware);
-
 app.use("/post", Posts);
 
-var port = 3000;
-app.listen(port, () => {
+app.listen(process.env.PORT, () => {
   console.log("Server is listening");
 });
