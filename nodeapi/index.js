@@ -5,9 +5,12 @@ const mongoose = require("mongoose");
 const expressValidator = require("express-validator");
 const dotenv = require("dotenv");
 const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
+
 dotenv.config();
 app.use(bodyParser.json());
 app.use(expressValidator());
+ap.use(cookieParser());
 
 // bring in routes
 const Posts = require("./routes/post");
