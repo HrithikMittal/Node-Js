@@ -31,7 +31,7 @@ const signin = (req, res) => {
     // If error or no user
     if (err || !user) {
       return res.status(401).json({
-        error: "User with that email doesn't exist.Please SignUp"
+        error: "User with that email does exist.Please SignUp"
       });
     }
     // If user is found make sure the email and password match

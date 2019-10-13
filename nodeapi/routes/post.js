@@ -7,11 +7,12 @@ const userauth = require("../controllers/user");
 
 router.get("/", postController.getPosts);
 router.post(
-  "/post",
+  "/post/new/:userId",
   authenticate.requireSignin,
-  validator.createPostValidator,
-  postController.createPost
+  postController.createPost,
+  validator.createPostValidator
 );
+router.get("/posts/by/:userId", postController.postByUser);
 
 // any route containing :userId, our app will first execute userById()
 router.param("userId", userauth.userById);

@@ -40,7 +40,7 @@ app.use(morgan("dev"));
 app.use(myOwnMiddleware);
 app.use("/post", Posts);
 app.use("/", Auth);
-app.use("/", User);
+app.use("/user", User);
 
 app.use(function(err, req, res, next) {
   if (err.name === "UnauthorizedError") {
