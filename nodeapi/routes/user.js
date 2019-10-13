@@ -5,6 +5,7 @@ const authenticate = require("../controllers/auth");
 
 router.get("/users", userauth.allUsers);
 router.get("/user/:userId", authenticate.requireSignin, userauth.getUser);
+router.put("/user/:userId", authenticate.requireSignin, userauth.updateUser);
 
 // any route containing :userId, our app will first execute userById()
 router.param("userId", userauth.userById);

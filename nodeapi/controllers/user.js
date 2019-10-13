@@ -1,3 +1,4 @@
+const _ = require("lodash");
 const User = require("../modals/user");
 
 const userById = (req, res, next, id) => {
@@ -41,9 +42,25 @@ const getUser = (req, res) => {
   return res.json(req.profile);
 };
 
+const updateUser = (req, res, next) => {
+  let user = req.profile;
+  user = _.extend(user, req.body); // extend - mutate the source object
+  user.updated = Date.now();
+  user
+    .save()
+    .then(profile => {
+      console.log("Everything is updated fine");
+      res.send(profile);
+    })
+    .catch(err => {
+      console.log("Error is:", err.message);
+    });
+};
+
 module.exports = {
   userById,
   hasAuthorization,
   allUsers,
-  getUser
+  getUser,
+  updateUser
 };
