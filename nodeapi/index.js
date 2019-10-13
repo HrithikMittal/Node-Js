@@ -11,6 +11,7 @@ app.use(expressValidator());
 
 // bring in routes
 const Posts = require("./routes/post");
+const Auth = require("./routes/auth");
 
 // connect to the Database
 mongoose
@@ -31,6 +32,7 @@ const myOwnMiddleware = (req, res, next) => {
 app.use(morgan("dev"));
 app.use(myOwnMiddleware);
 app.use("/post", Posts);
+app.use("/", Auth);
 
 app.listen(process.env.PORT, () => {
   console.log("Server is listening");
