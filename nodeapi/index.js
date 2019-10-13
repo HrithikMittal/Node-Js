@@ -36,6 +36,11 @@ app.use(morgan("dev"));
 app.use(myOwnMiddleware);
 app.use("/post", Posts);
 app.use("/", Auth);
+app.use(function(err, req, res, next) {
+  if (err.name === "UnauthorizedError") {
+    res.status(401).send("invalid token...");
+  }
+});
 
 app.listen(process.env.PORT, () => {
   console.log("Server is listening");
