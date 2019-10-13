@@ -33,9 +33,17 @@ const allUsers = (req, res) => {
       console.log("Error is:", error.message);
     });
 };
+// TODO: Getting the sepecific details only using select
+
+const getUser = (req, res) => {
+  req.profile.hashedpassword = undefined;
+  req.profile.salt = undefined;
+  return res.json(req.profile);
+};
 
 module.exports = {
   userById,
   hasAuthorization,
-  allUsers
+  allUsers,
+  getUser
 };
