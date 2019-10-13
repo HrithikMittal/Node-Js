@@ -36,7 +36,7 @@ const signin = (req, res) => {
     }
     // If user is found make sure the email and password match
     // create authenticate method in user modal
-    if (!User.authenticate(password)) {
+    if (!user.authenticate(password)) {
       return res.status(401).json({
         error: "Email and password do not match"
       });

@@ -10,7 +10,7 @@ const cookieParser = require("cookie-parser");
 dotenv.config();
 app.use(bodyParser.json());
 app.use(expressValidator());
-ap.use(cookieParser());
+app.use(cookieParser());
 
 // bring in routes
 const Posts = require("./routes/post");
