@@ -54,7 +54,13 @@ const signin = (req, res) => {
   });
 };
 
+const signout = (req, res) => {
+  res.clearCookie("t");
+  return res.json({ message: "Signout sccess!" });
+};
+
 module.exports = {
   signup,
-  signin
+  signin,
+  signout
 };
