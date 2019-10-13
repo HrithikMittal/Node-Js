@@ -57,10 +57,23 @@ const updateUser = (req, res, next) => {
     });
 };
 
+const deleteUser = (req, res, next) => {
+  let user = req.profile;
+  user
+    .remove()
+    .then(() => {
+      res.status(200).send("Done Successfully");
+    })
+    .catch(err => {
+      console.log("Error is:", err.message);
+    });
+};
+
 module.exports = {
   userById,
   hasAuthorization,
   allUsers,
   getUser,
-  updateUser
+  updateUser,
+  deleteUser
 };
