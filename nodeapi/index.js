@@ -15,6 +15,7 @@ app.use(cookieParser());
 // bring in routes
 const Posts = require("./routes/post");
 const Auth = require("./routes/auth");
+const User = require("./routes/user");
 
 // connect to the Database
 mongoose
@@ -36,6 +37,8 @@ app.use(morgan("dev"));
 app.use(myOwnMiddleware);
 app.use("/post", Posts);
 app.use("/", Auth);
+app.use("/",User);
+
 app.use(function(err, req, res, next) {
   if (err.name === "UnauthorizedError") {
     res.status(401).send("invalid token...");

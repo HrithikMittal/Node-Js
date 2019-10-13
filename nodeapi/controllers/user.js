@@ -21,7 +21,21 @@ const hasAuthorization = (req, res, next) => {
   }
 };
 
+const allUsers = (req, res) => {
+  User.find()
+    .then(users => {
+      if (!users) {
+        res.send("No User found there...");
+      }
+      res.send(users);
+    })
+    .catch(error => {
+      console.log("Error is:", error.message);
+    });
+};
+
 module.exports = {
   userById,
-  hasAuthorization
+  hasAuthorization,
+  allUsers
 };
