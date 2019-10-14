@@ -1,0 +1,18 @@
+{
+  "/": "Get All Routes",
+
+  "/post/": "Give All the posts",
+  "/post/new/:userId": "Post new post",
+  "/post/by/:userId": "Get All posts by user",
+  "/postupd/:postId": "Update the post by postId",
+  "/postdel/:postId": "Delet the post by postId",
+
+  "/user": "Ge All the Users",
+  "/user/:userId": "Get the Personal Profile",
+  "/user/:userId": "Put to Update the Profile",
+  "/user/:userId": "Delete the profile of User",
+
+  "/signup": "To Signup Route",
+  "/signin": "To SignIn Route",
+  "/signOut": "To SignOut Route"
+}

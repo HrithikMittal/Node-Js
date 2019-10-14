@@ -7,20 +7,20 @@ const userauth = require("../controllers/user");
 
 router.get("/", postController.getPosts);
 router.post(
-  "/post/new/:userId",
+  "/new/:userId",
   authenticate.requireSignin,
   postController.createPost,
   validator.createPostValidator
 );
-router.get("/posts/by/:userId", postController.postByUser);
+router.get("/by/:userId", postController.postByUser);
 router.put(
-  "/post/:postId",
+  "/postupd/:postId",
   authenticate.requireSignin,
   postController.isPoster,
   postController.updatePost
 );
 router.delete(
-  "/post/:postId",
+  "/postdel/:postId",
   authenticate.requireSignin,
   postController.isPoster,
   postController.deletePost

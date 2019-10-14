@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const expressValidator = require("express-validator");
 const dotenv = require("dotenv");
 const bodyParser = require("body-parser");
+const fs = require("fs");
 const cookieParser = require("cookie-parser");
 
 dotenv.config();
@@ -38,9 +39,21 @@ const myOwnMiddleware = (req, res, next) => {
 
 app.use(morgan("dev"));
 app.use(myOwnMiddleware);
-app.use("/post", Posts);
+
 app.use("/", Auth);
 app.use("/user", User);
+app.use("/post", Posts);
+
+// api docs
+app.get("/", (req, res) => {
+  fs.readFile("docs/apidocs.json", (err, data) => {
+    if (err) {
+      res.status(400).json({ error: err });
+    }
+    const docs = JSON.parse(data);
+    res.json(docs);
+  });
+});
 
 app.use(function(err, req, res, next) {
   if (err.name === "UnauthorizedError") {
