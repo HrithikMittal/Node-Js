@@ -16,5 +16,7 @@ router.get("/posts/by/:userId", postController.postByUser);
 
 // any route containing :userId, our app will first execute userById()
 router.param("userId", userauth.userById);
+// any route containing :postId, our app will first execute postById()
+router.param("postId", postController.postById);
 
 module.exports = router;

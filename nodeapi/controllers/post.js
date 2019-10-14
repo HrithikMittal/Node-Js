@@ -2,6 +2,18 @@ const Post = require("../modals/post");
 const formidable = require("formidable");
 const fs = require("fs");
 
+const postById = (req,res,next,id)=>{
+  Post.findById(id)
+  .populate("postedBy","_id name")
+  .exec((err,post)=>{
+    if(err || !post){
+      return res.status(400).josn({
+        error:err
+      })
+    }
+  })
+}
+
 const getPosts = (req, res) => {
   Post.find()
     .populate("postedBy", "_id name")
