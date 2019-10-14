@@ -13,6 +13,12 @@ router.post(
   validator.createPostValidator
 );
 router.get("/posts/by/:userId", postController.postByUser);
+router.delete(
+  "/post/:postId",
+  authenticate.requireSignin,
+  postController.isPoster,
+  postController.deletePost
+);
 
 // any route containing :userId, our app will first execute userById()
 router.param("userId", userauth.userById);
