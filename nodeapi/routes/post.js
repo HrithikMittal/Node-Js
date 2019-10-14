@@ -13,6 +13,12 @@ router.post(
   validator.createPostValidator
 );
 router.get("/posts/by/:userId", postController.postByUser);
+router.put(
+  "/post/:postId",
+  authenticate.requireSignin,
+  postController.isPoster,
+  postController.updatePost
+);
 router.delete(
   "/post/:postId",
   authenticate.requireSignin,
