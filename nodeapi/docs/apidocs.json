@@ -8,9 +8,9 @@
   "/postdel/:postId": "Delet the post by postId",
 
   "/user": "Ge All the Users",
-  "/user/:userId": "Get the Personal Profile",
-  "/user/:userId": "Put to Update the Profile",
-  "/user/:userId": "Delete the profile of User",
+  "/user/:userId/": "Get the Personal Profile",
+  "/user//:userId": "Put to Update the Profile",
+  "//user/:userId": "Delete the profile of User",
 
   "/signup": "To Signup Route",
   "/signin": "To SignIn Route",
