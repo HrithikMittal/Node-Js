@@ -7,6 +7,7 @@ const dotenv = require("dotenv");
 const bodyParser = require("body-parser");
 const fs = require("fs");
 const cookieParser = require("cookie-parser");
+const cors = require("cors");
 
 dotenv.config();
 app.use(bodyParser.json());
@@ -43,6 +44,7 @@ app.use(myOwnMiddleware);
 app.use("/", Auth);
 app.use("/user", User);
 app.use("/post", Posts);
+app.use(corse());
 
 // api docs
 app.get("/", (req, res) => {
