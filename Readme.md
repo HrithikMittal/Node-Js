@@ -18,3 +18,30 @@
 - and keeps the events in a stack
 - they will be executed one by one without waiting for any one of these to complete
 - Instead they will be executed and completed as the process is runnning other callbacks
+
+### Callbacks
+
+### Promises
+
+### Streams
+
+### Pipes
+
+### Events
+
+### Module Patterns
+
+### Generators
+
+### Middleware
+
+### Async/Await
+
+
+### Axios
+
+### Work Thread
+
+### Others
+
+### 
