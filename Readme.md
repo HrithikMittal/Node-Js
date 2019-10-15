@@ -106,6 +106,19 @@ eventEmitter.emit('data_received');
 ```
 
 ### Module Patterns
+In the module pattern as in all things, JavaScript offers few prescriptions. On the client-side “modules” are creatures of the build system and our imagination; Node.js implements a filesystem-based module pattern but leaves its use and abuse largely up to userland. Considerable freedom, minimal structure.
+
+The good news? These wide-open spaces include several well-worn patterns for authoring modules that are clear, flexible, and easily scaled inside a growing application. All we have to do is put them to use.
+```
+var myModule = (function () {
+  var myModule = {
+    doSomething: () {
+      return 'consider it done';
+    },
+  };
+  return myModule;
+})();
+```
 
 ### Generators
 Generators have become quite famous in Node.js in recent times and that probably because of what they are capable of doing.
