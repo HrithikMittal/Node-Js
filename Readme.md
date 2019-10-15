@@ -40,6 +40,28 @@ asyncOperation ( params.., function ( err, returnValues.. ) {
 ```
 
 ### Promises
+A Promise is a proxy for a value not necessarily known when the promise is created. It allows you to associate handlers to an asynchronous action's eventual success value or failure reason. This lets asynchronous methods return values like synchronous methods: instead of the final value, the asynchronous method returns a promise for the value at some point in the future.
+
+In simple words “A promise is a word taken for some action, the other party who gave the promise might fulfill it or deny it”. In the case of fulfilling, the promise gets resolved, and in another case, it gets rejected.
+
+We can create a promise in JavaScript and use it as an upcoming fact to describe few actions. Promises are kind of design patterns to remove the usage of unintuitive callbacks.
+
+```
+function main() {
+    var initializePromise = initialize();
+    initializePromise.then(function(result) {
+        userDetails = result;
+        console.log("Initialized user details");
+        // Use user details from here
+        return userDetails;
+    }, function(err) {
+        console.log(err);
+    }).then(function(result) {
+        // Print the code activity. Prints 110
+        console.log(result.public_gists + result.public_repos);
+    })
+}
+```
 
 ### Streams
 
