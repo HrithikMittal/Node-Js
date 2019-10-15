@@ -176,9 +176,33 @@ app.listen(3000)
 
 
 ### Async/Await
+The async keyword before a function has two effects:
 
+- Makes it always return a promise.
+- Allows to use await in it.
 
-### Axios
+The await keyword before a promise makes JavaScript wait until that promise settles, and then:
+
+- If it’s an error, the exception is generated, same as if throw error were called at that very place.
+Otherwise, it returns the result.
+- Together they provide a great framework to write asynchronous code that is easy both to read and write.
+
+With async/await we rarely need to write promise.then/catch, but we still shouldn’t forget that they are based on promises, because sometimes (e.g. in the outermost scope) we have to use these methods. Also Promise.all is a nice thing to wait for many tasks simultaneously.
+
+```
+async function f() {
+
+  try {
+    let response = await fetch('/no-user-here');
+    let user = await response.json();
+  } catch(err) {
+    // catches errors both in fetch and response.json
+    alert(err);
+  }
+}
+
+f();
+```
 
 ### Work Thread
 
