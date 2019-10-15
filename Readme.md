@@ -80,6 +80,16 @@ server.listen(8000);
 ```
 
 ### Pipes
+Within Node applications, streams can be piped together using the pipe() method, which takes two arguments:
+
+- A Required writable stream that acts as the destination for the data and An optional object used to pass in options.
+- A typical example of using pipes, if you want to transfer data from one file to the other.
+```
+var fs = require("fs");
+var readStream = fs.createReadStream("D://datainput.txt");
+var writeStream = fs.createWriteStream("D://dataOutput.txt");
+readStream.pipe(writeStream);
+```
 
 ### Events
 
