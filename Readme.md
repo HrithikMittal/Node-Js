@@ -92,6 +92,18 @@ readStream.pipe(writeStream);
 ```
 
 ### Events
+Events are one of the key concepts in Node.js and sometimes Node.js is referred to as an Event-driven framework.
+
+Basically, an event is something that happens. For example, if a connection is established to a database, then the database connection event is triggered. Event driven programming is to create functions that will be triggered when specific events are triggered.
+```
+var events = require('events');
+var eventEmitter = new events.EventEmitter();
+eventEmitter.on('data_received', function() {
+    console.log('data received succesfully.');
+});
+
+eventEmitter.emit('data_received'); 
+```
 
 ### Module Patterns
 
